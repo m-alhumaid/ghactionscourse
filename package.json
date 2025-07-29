@@ -4,7 +4,7 @@
     "description": "A Simple Node.js app for Github Acions Pr Testing",
     "main": "src/app.js",
 "scripts": {
-  "test": "node test.js"
+  "test": "node src/test.js"
 },
     "dependencies": {}
 }
