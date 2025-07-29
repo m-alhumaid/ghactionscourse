@@ -1,20 +1,31 @@
 on:
   # 1- either gui or cli - manual
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: "Choose environment"
-        required: true
-        default: "staging"
-        type: choice
-        options:
-          - staging
-          - production
+  # workflow_dispatch:
+  #   inputs:
+  #     environment:
+  #       description: "Choose environment"
+  #       required: true
+  #       default: "staging"
+  #       type: choice
+  #       options:
+  #         - staging
+  #         - production
         
   
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Deploy app
+#         run: echo "Deploying the app to ${{ inputs.environment }}"
+
+# 2- Http Call
+  repository_dispatch:
+    types: [incident_report]
+
 jobs:
-  deploy:
+  handle-incident:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy app
-        run: echo "Deploying the app to ${{ inputs.environment }}"
+      - name: Print incident details
+        run: echo "Incident reported"
